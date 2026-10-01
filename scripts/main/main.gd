@@ -9,6 +9,7 @@ const MENUS := {
 	"restart": preload("res://scenes/menus/restart_menu.tscn"),
 	"game_over": preload("res://scenes/menus/game_over_menu.tscn"),
 }
+const WEB_EXIT_SCRIPT := "window.close(); if (!window.closed && history.length > 1) { history.back(); }"
 
 var profile := ProfileStore.new()
 var current_menu := ""
@@ -141,6 +142,9 @@ func _notification(what: int) -> void:
 
 
 func _quit_game() -> void:
+	if OS.has_feature("web"):
+		JavaScriptBridge.eval(WEB_EXIT_SCRIPT)
+		return
 	if _closing:
 		return
 	_closing = true
