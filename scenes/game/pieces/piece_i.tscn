@@ -1,0 +1,19 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" path="res://scenes/game/blocks/block_i.tscn" id="1"]
+
+[node name="PieceI" type="Node2D"]
+metadata/cells = PackedVector2Array(0, 0, 1, 0, 2, 0, 3, 0)
+metadata/cell_size = 24
+
+[node name="Cell0" parent="." instance=ExtResource("1")]
+position = Vector2(0, 0)
+
+[node name="Cell1" parent="." instance=ExtResource("1")]
+position = Vector2(24, 0)
+
+[node name="Cell2" parent="." instance=ExtResource("1")]
+position = Vector2(48, 0)
+
+[node name="Cell3" parent="." instance=ExtResource("1")]
+position = Vector2(72, 0)

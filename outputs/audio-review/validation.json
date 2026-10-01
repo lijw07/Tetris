@@ -1,0 +1,14 @@
+{
+  "checks": 96,
+  "effects": 19,
+  "failures": [],
+  "native_mix": {
+    "frames": 21504,
+    "mix_rate": 48000,
+    "muted_peak": 0.0,
+    "peak": 0.891253113746643
+  },
+  "gameplay_checks": 56,
+  "gameplay_failures": 0,
+  "native_logs_clean": true
+}

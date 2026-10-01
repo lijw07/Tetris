@@ -1,0 +1,186 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://resources/ui_theme.tres" id="theme"]
+[ext_resource type="Script" path="res://scripts/game/gameplay.gd" id="gameplay"]
+[ext_resource type="Script" path="res://scripts/game/playfield.gd" id="playfield"]
+[ext_resource type="Script" path="res://scripts/game/piece_preview.gd" id="piece_preview"]
+[ext_resource type="PackedScene" path="res://scenes/game/board.tscn" id="board"]
+[ext_resource type="PackedScene" path="res://scenes/ui/panels/hud_panel.tscn" id="hud_panel"]
+[ext_resource type="PackedScene" path="res://scenes/ui/controls/button.tscn" id="button"]
+
+[node name="Gameplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 960
+offset_bottom = 640
+theme = ExtResource("theme")
+script = ExtResource("gameplay")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 960
+offset_bottom = 640
+mouse_filter = 2
+color = Color(0.145098, 0.160784, 0.180392, 1)
+
+[node name="Title" type="Label" parent="."]
+offset_left = 356
+offset_top = 19
+offset_right = 656
+offset_bottom = 55
+mouse_filter = 2
+text = "FALLING BLOCKS"
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 0
+
+[node name="Board" parent="." instance=ExtResource("board")]
+layout_mode = 0
+offset_left = 356
+offset_top = 76
+offset_right = 604
+offset_bottom = 564
+
+[node name="Playfield" type="Node2D" parent="."]
+position = Vector2(360, 80)
+script = ExtResource("playfield")
+
+[node name="Settled" type="Node2D" parent="Playfield"]
+
+[node name="Ghost" type="Node2D" parent="Playfield"]
+
+[node name="Piece" type="Node2D" parent="Playfield"]
+
+[node name="Flashes" type="Node2D" parent="Playfield"]
+
+[node name="HoldLabel" type="Label" parent="."]
+offset_left = 198
+offset_top = 84
+offset_right = 326
+offset_bottom = 109
+mouse_filter = 2
+text = "HOLD"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 0
+
+[node name="HoldSlot" type="Control" parent="."]
+layout_mode = 0
+offset_left = 196
+offset_top = 118
+offset_right = 324
+offset_bottom = 210
+mouse_filter = 2
+script = ExtResource("piece_preview")
+
+[node name="Panel" parent="HoldSlot" instance=ExtResource("hud_panel")]
+layout_mode = 0
+
+[node name="ScoreLabel" type="Label" parent="."]
+offset_left = 636
+offset_top = 84
+offset_right = 764
+offset_bottom = 109
+mouse_filter = 2
+text = "SCORE"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 0
+
+[node name="ScoreValue" type="Label" parent="."]
+offset_left = 636
+offset_top = 106
+offset_right = 776
+offset_bottom = 144
+mouse_filter = 2
+text = "000000"
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 0
+
+[node name="LevelLabel" type="Label" parent="."]
+offset_left = 636
+offset_top = 165
+offset_right = 764
+offset_bottom = 190
+mouse_filter = 2
+text = "LEVEL"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 0
+
+[node name="LevelValue" type="Label" parent="."]
+offset_left = 636
+offset_top = 187
+offset_right = 776
+offset_bottom = 225
+mouse_filter = 2
+text = "01"
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 0
+
+[node name="LinesLabel" type="Label" parent="."]
+offset_left = 636
+offset_top = 242
+offset_right = 764
+offset_bottom = 267
+mouse_filter = 2
+text = "LINES"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 0
+
+[node name="LinesValue" type="Label" parent="."]
+offset_left = 636
+offset_top = 264
+offset_right = 776
+offset_bottom = 302
+mouse_filter = 2
+text = "000"
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 0
+
+[node name="NextLabel" type="Label" parent="."]
+offset_left = 636
+offset_top = 337
+offset_right = 764
+offset_bottom = 362
+mouse_filter = 2
+text = "NEXT"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 0
+
+[node name="NextSlot" type="Control" parent="."]
+layout_mode = 0
+offset_left = 636
+offset_top = 372
+offset_right = 764
+offset_bottom = 464
+mouse_filter = 2
+script = ExtResource("piece_preview")
+
+[node name="Panel" parent="NextSlot" instance=ExtResource("hud_panel")]
+layout_mode = 0
+
+[node name="PauseButton" parent="." instance=ExtResource("button")]
+layout_mode = 0
+offset_left = 636
+offset_top = 492
+offset_right = 764
+offset_bottom = 536
+focus_mode = 0
+text = "PAUSE"
+
+[node name="Controls" type="Label" parent="."]
+offset_left = 160
+offset_top = 582
+offset_right = 800
+offset_bottom = 606
+mouse_filter = 2
+text = "← → MOVE   ↑ ROTATE   ↓ SOFT DROP   SPACE DROP   C HOLD"
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 1

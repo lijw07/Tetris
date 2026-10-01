@@ -1,0 +1,136 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://resources/ui_theme.tres" id="1"]
+
+[ext_resource type="Script" path="res://scripts/menus/menu_screen.gd" id="2"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/panels/dialog_panel.tscn" id="3"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/controls/slider.tscn" id="4"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/controls/toggle.tscn" id="5"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/controls/button.tscn" id="6"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+cancel_action = "back"
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = 0
+offset_top = 0
+offset_right = 960
+offset_bottom = 640
+mouse_filter = 2
+color = Color(0.145098, 0.160784, 0.180392, 1)
+
+[node name="Panel" parent="." instance=ExtResource("3")]
+offset_left = 300
+offset_top = 104
+offset_right = 660
+offset_bottom = 552
+
+[node name="Title" type="Label" parent="."]
+offset_left = 300
+offset_top = 127
+offset_right = 660
+offset_bottom = 163
+mouse_filter = 2
+text = "SETTINGS"
+theme_override_font_sizes/font_size = 24
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 1
+
+[node name="MusicLabel" type="Label" parent="."]
+offset_left = 340
+offset_top = 196
+offset_right = 540
+offset_bottom = 221
+mouse_filter = 2
+text = "MUSIC"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 0
+
+[node name="MusicValue" type="Label" parent="."]
+offset_left = 560
+offset_top = 196
+offset_right = 620
+offset_bottom = 221
+mouse_filter = 2
+text = "50%"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 2
+
+[node name="MusicSlider" parent="." instance=ExtResource("4")]
+offset_left = 340
+offset_top = 225
+offset_right = 620
+offset_bottom = 249
+value = 50.0
+metadata/setting = "music"
+
+[node name="SoundLabel" type="Label" parent="."]
+offset_left = 340
+offset_top = 272
+offset_right = 540
+offset_bottom = 297
+mouse_filter = 2
+text = "SOUND"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 0
+
+[node name="SoundValue" type="Label" parent="."]
+offset_left = 560
+offset_top = 272
+offset_right = 620
+offset_bottom = 297
+mouse_filter = 2
+text = "80%"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 2
+
+[node name="SoundSlider" parent="." instance=ExtResource("4")]
+offset_left = 340
+offset_top = 301
+offset_right = 620
+offset_bottom = 325
+value = 80.0
+metadata/setting = "sound"
+
+[node name="GhostLabel" type="Label" parent="."]
+offset_left = 340
+offset_top = 369
+offset_right = 560
+offset_bottom = 394
+mouse_filter = 2
+text = "GHOST PIECE"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 0
+
+[node name="GhostToggle" parent="." instance=ExtResource("5")]
+metadata/setting = "ghost"
+offset_left = 576
+offset_top = 367
+offset_right = 620
+offset_bottom = 391
+
+[node name="DoneButton" parent="." instance=ExtResource("6")]
+offset_left = 340
+offset_top = 461
+offset_right = 620
+offset_bottom = 505
+text = "DONE"
+metadata/action = "back"
+metadata/initial_focus = true

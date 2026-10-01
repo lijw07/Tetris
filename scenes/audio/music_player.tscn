@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="AudioStream" path="res://assets/audio/music/block_hop.wav" id="1"]
+
+[ext_resource type="Script" path="res://scripts/audio/music_player.gd" id="2"]
+
+[node name="MusicPlayer" type="AudioStreamPlayer"]
+volume_db = -8.0
+stream = ExtResource("1")
+script = ExtResource("2")

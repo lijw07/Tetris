@@ -1,0 +1,78 @@
+[
+  {
+    "seconds": 0.0,
+    "sound": "ui_move"
+  },
+  {
+    "seconds": 0.425,
+    "sound": "ui_confirm"
+  },
+  {
+    "seconds": 0.965,
+    "sound": "ui_back"
+  },
+  {
+    "seconds": 1.5,
+    "sound": "ui_adjust"
+  },
+  {
+    "seconds": 1.912,
+    "sound": "move"
+  },
+  {
+    "seconds": 2.325,
+    "sound": "soft_drop"
+  },
+  {
+    "seconds": 2.735,
+    "sound": "rotate"
+  },
+  {
+    "seconds": 3.228,
+    "sound": "hold"
+  },
+  {
+    "seconds": 3.803,
+    "sound": "lock"
+  },
+  {
+    "seconds": 4.268,
+    "sound": "hard_drop"
+  },
+  {
+    "seconds": 4.808,
+    "sound": "clear_1"
+  },
+  {
+    "seconds": 5.468,
+    "sound": "clear_2"
+  },
+  {
+    "seconds": 6.203,
+    "sound": "clear_3"
+  },
+  {
+    "seconds": 6.973,
+    "sound": "clear_4"
+  },
+  {
+    "seconds": 7.803,
+    "sound": "level_up"
+  },
+  {
+    "seconds": 8.723,
+    "sound": "game_over"
+  },
+  {
+    "seconds": 9.803,
+    "sound": "game_start"
+  },
+  {
+    "seconds": 10.473,
+    "sound": "pause"
+  },
+  {
+    "seconds": 11.043,
+    "sound": "resume"
+  }
+]

@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: Condition "ret != noErr" is true. Returning: ""
+   at: get_system_ca_certificates (platform/macos/os_macos.mm:1035)
+audio/buses/default_bus_layout = res://default_bus_layout.tres
+audio/buses/channel_disable_threshold_db = -60.0
+audio/buses/channel_disable_time = 2.0
+audio/default_bus_layout = res://resources/audio_bus_layout.tres
+FORMAT 3 RATE 44100
+BUS FILE (res://resources/audio_bus_layout.tres):<AudioBusLayout#-9223372009977674275>

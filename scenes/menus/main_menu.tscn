@@ -1,0 +1,99 @@
+[gd_scene format=3]
+
+[ext_resource type="Theme" path="res://resources/ui_theme.tres" id="1"]
+
+[ext_resource type="Script" path="res://scripts/menus/menu_screen.gd" id="2"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/title_mark.tscn" id="3"]
+
+[ext_resource type="PackedScene" path="res://scenes/ui/controls/button.tscn" id="4"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1")
+script = ExtResource("2")
+
+[node name="Background" type="ColorRect" parent="."]
+offset_left = 0
+offset_top = 0
+offset_right = 960
+offset_bottom = 640
+mouse_filter = 2
+color = Color(0.145098, 0.160784, 0.180392, 1)
+
+[node name="TitleMark" parent="." instance=ExtResource("3")]
+offset_left = 456
+offset_top = 103
+offset_right = 504
+offset_bottom = 135
+
+[node name="Title" type="Label" parent="."]
+offset_left = 260
+offset_top = 164
+offset_right = 700
+offset_bottom = 206
+mouse_filter = 2
+text = "FALLING BLOCKS"
+theme_override_font_sizes/font_size = 30
+theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="."]
+offset_left = 260
+offset_top = 213
+offset_right = 700
+offset_bottom = 237
+mouse_filter = 2
+text = "A LITTLE ROOM TO THINK."
+theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 1
+
+[node name="PlayButton" parent="." instance=ExtResource("4")]
+offset_left = 340
+offset_top = 275
+offset_right = 620
+offset_bottom = 319
+text = "PLAY"
+metadata/action = "play"
+metadata/initial_focus = true
+
+[node name="HowToPlayButton" parent="." instance=ExtResource("4")]
+offset_left = 340
+offset_top = 333
+offset_right = 620
+offset_bottom = 377
+text = "HOW TO PLAY"
+metadata/action = "how_to_play"
+
+[node name="SettingsButton" parent="." instance=ExtResource("4")]
+offset_left = 340
+offset_top = 391
+offset_right = 620
+offset_bottom = 435
+text = "SETTINGS"
+metadata/action = "settings"
+
+[node name="QuitButton" parent="." instance=ExtResource("4")]
+offset_left = 340
+offset_top = 449
+offset_right = 620
+offset_bottom = 493
+text = "QUIT"
+metadata/action = "quit"
+
+[node name="BestScore" type="Label" parent="."]
+offset_left = 300
+offset_top = 569
+offset_right = 660
+offset_bottom = 594
+mouse_filter = 2
+text = "BEST  031200"
+theme_override_font_sizes/font_size = 13
+theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
+horizontal_alignment = 1

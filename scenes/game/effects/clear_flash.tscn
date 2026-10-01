@@ -1,0 +1,31 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/clear_flash.png" id="1"]
+
+[ext_resource type="Script" path="res://scripts/game/clear_flash.gd" id="2"]
+
+[sub_resource type="AtlasTexture" id="Frame0"]
+atlas = ExtResource("1")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="Frame1"]
+atlas = ExtResource("1")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="Frame2"]
+atlas = ExtResource("1")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="Frame3"]
+atlas = ExtResource("1")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="Frames"]
+animations = [{"frames": [{"duration": 1.0, "texture": SubResource("Frame0")}, {"duration": 1.0, "texture": SubResource("Frame1")}, {"duration": 1.0, "texture": SubResource("Frame2")}, {"duration": 1.0, "texture": SubResource("Frame3")}], "loop": false, "name": &"clear", "speed": 16.0}]
+
+[node name="ClearFlash" type="AnimatedSprite2D"]
+centered = false
+texture_filter = 1
+sprite_frames = SubResource("Frames")
+animation = &"clear"
+script = ExtResource("2")

@@ -1,0 +1,128 @@
+[gd_resource type="Theme" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/ui/buttons/button_normal.png" id="normal"]
+
+[ext_resource type="Texture2D" path="res://assets/ui/buttons/button_hover.png" id="hover"]
+
+[ext_resource type="Texture2D" path="res://assets/ui/buttons/button_focus.png" id="focus"]
+
+[ext_resource type="Texture2D" path="res://assets/ui/buttons/button_pressed.png" id="pressed"]
+
+[ext_resource type="Texture2D" path="res://assets/ui/buttons/button_disabled.png" id="disabled"]
+
+[ext_resource type="Texture2D" path="res://assets/ui/controls/toggle_on.png" id="toggle_true"]
+
+[ext_resource type="Texture2D" path="res://assets/ui/controls/toggle_off.png" id="toggle_false"]
+
+[ext_resource type="Texture2D" path="res://assets/ui/controls/slider_thumb.png" id="slider_thumb"]
+
+[sub_resource type="StyleBoxTexture" id="normal"]
+texture = ExtResource("normal")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+content_margin_left = 14.0
+content_margin_right = 14.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="hover"]
+texture = ExtResource("hover")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+content_margin_left = 14.0
+content_margin_right = 14.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="focus"]
+texture = ExtResource("focus")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+content_margin_left = 14.0
+content_margin_right = 14.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="pressed"]
+texture = ExtResource("pressed")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+content_margin_left = 14.0
+content_margin_right = 14.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="disabled"]
+texture = ExtResource("disabled")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+content_margin_left = 14.0
+content_margin_right = 14.0
+content_margin_top = 8.0
+content_margin_bottom = 8.0
+
+[sub_resource type="SystemFont" id="Mono"]
+font_names = PackedStringArray("Menlo", "DejaVu Sans Mono", "monospace")
+
+[sub_resource type="StyleBoxEmpty" id="Empty"]
+
+[sub_resource type="StyleBoxFlat" id="Track"]
+bg_color = Color(0.321569, 0.345098, 0.368627, 1)
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="Fill"]
+bg_color = Color(0.933333, 0.933333, 0.917647, 1)
+content_margin_top = 2.0
+content_margin_bottom = 2.0
+
+[resource]
+default_font = SubResource("Mono")
+default_font_size = 15
+Label/colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+Button/styles/normal = SubResource("normal")
+Button/styles/hover = SubResource("hover")
+Button/styles/focus = SubResource("focus")
+Button/styles/pressed = SubResource("pressed")
+Button/styles/disabled = SubResource("disabled")
+Button/colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+Button/colors/font_hover_color = Color(0.933333, 0.933333, 0.917647, 1)
+Button/colors/font_focus_color = Color(0.145098, 0.160784, 0.180392, 1)
+Button/colors/font_pressed_color = Color(0.145098, 0.160784, 0.180392, 1)
+Button/colors/font_hover_pressed_color = Color(0.145098, 0.160784, 0.180392, 1)
+Button/colors/font_disabled_color = Color(0.4, 0.427451, 0.45098, 1)
+OptionButton/styles/normal = SubResource("normal")
+OptionButton/styles/hover = SubResource("hover")
+OptionButton/styles/focus = SubResource("focus")
+OptionButton/styles/pressed = SubResource("pressed")
+OptionButton/styles/disabled = SubResource("disabled")
+OptionButton/colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+OptionButton/colors/font_hover_color = Color(0.933333, 0.933333, 0.917647, 1)
+OptionButton/colors/font_focus_color = Color(0.145098, 0.160784, 0.180392, 1)
+OptionButton/colors/font_pressed_color = Color(0.145098, 0.160784, 0.180392, 1)
+OptionButton/colors/font_hover_pressed_color = Color(0.145098, 0.160784, 0.180392, 1)
+OptionButton/colors/font_disabled_color = Color(0.4, 0.427451, 0.45098, 1)
+HSlider/styles/slider = SubResource("Track")
+HSlider/styles/grabber_area = SubResource("Fill")
+HSlider/styles/grabber_area_highlight = SubResource("Fill")
+HSlider/icons/grabber = ExtResource("slider_thumb")
+HSlider/icons/grabber_highlight = ExtResource("slider_thumb")
+HSlider/icons/grabber_disabled = ExtResource("slider_thumb")
+CheckButton/icons/checked = ExtResource("toggle_true")
+CheckButton/icons/unchecked = ExtResource("toggle_false")
+CheckButton/styles/normal = SubResource("Empty")
+CheckButton/styles/hover = SubResource("Empty")
+CheckButton/styles/pressed = SubResource("Empty")
+CheckButton/styles/focus = SubResource("Empty")
+CheckButton/colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
+CheckButton/colors/font_pressed_color = Color(0.933333, 0.933333, 0.917647, 1)

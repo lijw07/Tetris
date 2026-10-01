@@ -1,0 +1,42 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/main/main.gd" id="main"]
+[ext_resource type="Script" path="res://scripts/main/screen_scaler.gd" id="screen_scaler"]
+[ext_resource type="PackedScene" path="res://scenes/game/gameplay.tscn" id="gameplay"]
+[ext_resource type="PackedScene" path="res://scenes/audio/music_player.tscn" id="music"]
+[ext_resource type="PackedScene" path="res://scenes/audio/sound_player.tscn" id="sound"]
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("main")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.145098, 0.160784, 0.180392, 1)
+
+[node name="Stage" type="Control" parent="."]
+layout_mode = 0
+offset_right = 960
+offset_bottom = 640
+mouse_filter = 2
+
+[node name="Gameplay" parent="Stage" instance=ExtResource("gameplay")]
+layout_mode = 0
+
+[node name="MusicPlayer" parent="." instance=ExtResource("music")]
+
+[node name="SoundPlayer" parent="." instance=ExtResource("sound")]
+
+[node name="ScreenScaler" type="Node" parent="."]
+script = ExtResource("screen_scaler")

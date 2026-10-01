@@ -1,0 +1,141 @@
+{
+  "origin": "Original procedural synthesis; no outside samples",
+  "sample_rate": 44100,
+  "channels": 1,
+  "pcm_bits": 16,
+  "sounds": [
+    {
+      "name": "ui_move",
+      "file": "ui_move.wav",
+      "seconds": 0.045,
+      "peak_dbfs": -4.44,
+      "sha256": "59e1bddd14d0430124bd01f7b1f755fa77ad1ad59e461ee2e7e69a40b9084302"
+    },
+    {
+      "name": "ui_confirm",
+      "file": "ui_confirm.wav",
+      "seconds": 0.16,
+      "peak_dbfs": -4.44,
+      "sha256": "13c9ddf3950c6a482f5ce08fcb72f2bfd180f61f99fabe2401515b3e5783aab7"
+    },
+    {
+      "name": "ui_back",
+      "file": "ui_back.wav",
+      "seconds": 0.155,
+      "peak_dbfs": -4.44,
+      "sha256": "a42780f0cd13a75141d4949b11b5b66678f9c93b7d89b5b0c01e961baf50b3bf"
+    },
+    {
+      "name": "ui_adjust",
+      "file": "ui_adjust.wav",
+      "seconds": 0.032,
+      "peak_dbfs": -4.44,
+      "sha256": "59be101160da1cd017c91f8a8757c9fcc17a7355ed6bd8a92097927b8231a232"
+    },
+    {
+      "name": "move",
+      "file": "move.wav",
+      "seconds": 0.033,
+      "peak_dbfs": -4.44,
+      "sha256": "0a669a6c23450c34272510c1a6772b289e2d21d389ee7e33a21bc1b03a989e1f"
+    },
+    {
+      "name": "soft_drop",
+      "file": "soft_drop.wav",
+      "seconds": 0.03,
+      "peak_dbfs": -4.44,
+      "sha256": "982da9942660868512651ee5efabb8b8540ff9c97dfc89b362f32576f807aa65"
+    },
+    {
+      "name": "rotate",
+      "file": "rotate.wav",
+      "seconds": 0.113,
+      "peak_dbfs": -4.44,
+      "sha256": "1c5174e10018c649505c00ef5843e2fa6e3f5be1c5e4396ad3251555800874ec"
+    },
+    {
+      "name": "hold",
+      "file": "hold.wav",
+      "seconds": 0.195,
+      "peak_dbfs": -4.44,
+      "sha256": "fd6bff352d95586c2d3da7ec034138b49e8afdf79747e6bfe0c958d4e130397d"
+    },
+    {
+      "name": "lock",
+      "file": "lock.wav",
+      "seconds": 0.085,
+      "peak_dbfs": -4.44,
+      "sha256": "c7428fddefe74768793fb06536703c49cfa83197e98e6b7ab4c9d8d821422d1c"
+    },
+    {
+      "name": "hard_drop",
+      "file": "hard_drop.wav",
+      "seconds": 0.16,
+      "peak_dbfs": -4.44,
+      "sha256": "06c1e0b37db778b5c77a7fe21abf87889788889bb8bbc5bb07a81227188b3bac"
+    },
+    {
+      "name": "clear_1",
+      "file": "clear_1.wav",
+      "seconds": 0.28,
+      "peak_dbfs": -4.44,
+      "sha256": "84159f9ec983cd9cce22e1dfb0003d7d26d7022e0a9a9ef762b1aea765876582"
+    },
+    {
+      "name": "clear_2",
+      "file": "clear_2.wav",
+      "seconds": 0.355,
+      "peak_dbfs": -4.44,
+      "sha256": "acf517b89e92b70120500f54a0647571e327b9cea552801acf78a8ffd4163ca5"
+    },
+    {
+      "name": "clear_3",
+      "file": "clear_3.wav",
+      "seconds": 0.39,
+      "peak_dbfs": -4.44,
+      "sha256": "c8665673c5c7d6f8294f303188eb0972dc51d16622c455473d17e8c352c28f2b"
+    },
+    {
+      "name": "clear_4",
+      "file": "clear_4.wav",
+      "seconds": 0.45,
+      "peak_dbfs": -4.44,
+      "sha256": "cd2def6cd7b9cd18b6677a4231ed47c12f8f8c1043211645b5a1e9b7e34eee0a"
+    },
+    {
+      "name": "level_up",
+      "file": "level_up.wav",
+      "seconds": 0.54,
+      "peak_dbfs": -4.44,
+      "sha256": "416099afa7804d9ab978a0ab34b7d1a2b687756c0586399990c15b53128085a1"
+    },
+    {
+      "name": "game_over",
+      "file": "game_over.wav",
+      "seconds": 0.7,
+      "peak_dbfs": -4.44,
+      "sha256": "2f48dad8e03e9cea641eab40d81749a6dd19239a12540e5a580e6ed4ece73773"
+    },
+    {
+      "name": "game_start",
+      "file": "game_start.wav",
+      "seconds": 0.29,
+      "peak_dbfs": -4.44,
+      "sha256": "b8acf0cd4278857d26ff1acc535865c81b73f087b944a72463b71c291c947681"
+    },
+    {
+      "name": "pause",
+      "file": "pause.wav",
+      "seconds": 0.19,
+      "peak_dbfs": -4.44,
+      "sha256": "271689e4b5ba525a4e6c94eb7bda4d8b74829261dbcf739405607cae79b1811e"
+    },
+    {
+      "name": "resume",
+      "file": "resume.wav",
+      "seconds": 0.19,
+      "peak_dbfs": -4.44,
+      "sha256": "c7351bfdc567005f803b90c2e2fc87617c6f3feb6b966cd2f29fc3eeba9d970b"
+    }
+  ]
+}
