@@ -1,6 +1,6 @@
 # Tetris
 
-A falling-blocks game built in Godot 4.7 (GL Compatibility). Press **F5** in the editor to play.
+Tetris built in Godot 4.7 (GL Compatibility). Press **F5** in the editor to play.
 
 ## Controls
 
@@ -42,7 +42,7 @@ The game includes 19 original short arcade effects. **Settings → Sound** contr
 
 `Gameplay` and `MenuScreen` emit `sound_requested`; `main.gd` connects them to the reusable `SoundPlayer` scene. Its six playback voices keep menu feedback separate from movement sounds and longer clear cues. It lives outside the gameplay node so clicks and menu sounds continue while gameplay is paused. The `SFX` bus controls effects; a Master hard limiter prevents clipping when music and effects overlap.
 
-The individual WAVs and their hashes are in `assets/audio/sfx/`. They are original procedural synthesis with no external samples. `tools/build_sound_effects.py` (Python with NumPy) regenerates the files and a spaced audition reel at `outputs/audio-review/sound-effects-preview.wav`. Reimport the WAVs in Godot before running tests after regeneration.
+The effects are in `assets/audio/sfx/`. They are original procedural synthesis with no external samples.
 
 ## Screen scaling
 
@@ -66,7 +66,7 @@ assets/
   ui/panels/          dialog, confirm, HUD, keycap and dim panels
   ui/icons/           UI icons
   audio/music/        block_hop.wav
-  audio/sfx/          19 effects and their source manifest
+  audio/sfx/          19 sound effects
 scenes/
   main.tscn           entry point
   game/               gameplay.tscn, board.tscn, blocks/, pieces/, effects/
@@ -81,8 +81,6 @@ scripts/
   audio/              music_player.gd, sound_player.gd
 resources/            ui_theme.tres, audio_bus_layout.tres
 tests/                gameplay_rules.gd, audio_feedback.gd
-tools/                build_sound_effects.py
-art_source/           original art exports and build scripts (ignored by Godot)
 ```
 
 ## Menus
@@ -96,4 +94,4 @@ Every menu scene uses `menu_screen.gd`. Buttons declare what they do with `metad
 /Applications/Godot.app/Contents/MacOS/Godot --headless --path . --script tests/audio_feedback.gd
 ```
 
-Run `tests/audio_feedback.gd` without `--headless` to also capture the actual native audio mix and check that full-volume overlapping effects do not clip and zero Sound produces silence. It uses its own test profile under `work/audio/`. Results and the captured mix go to `outputs/audio-review/`. Native audio was checked on macOS; browser and mobile audio have not been tested.
+Run `tests/audio_feedback.gd` without `--headless` to also capture the actual native audio mix and check that full-volume overlapping effects do not clip and zero Sound produces silence. It uses a temporary test profile in `user://` and deletes it afterwards. Native audio was checked on macOS; browser and mobile audio have not been tested.

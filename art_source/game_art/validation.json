@@ -1,8 +1,0 @@
-{
-  "svg_png_pairs": 24,
-  "audio_seconds": 20,
-  "clipping": false,
-  "loop_starts_and_ends_at_silence": true,
-  "scene_and_sheet_visually_checked": true,
-  "godot_integration": false
-}

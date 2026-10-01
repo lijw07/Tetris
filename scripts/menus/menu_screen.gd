@@ -67,7 +67,6 @@ func _navigation_sound(control: Control) -> void:
 
 
 func _play_action_sound(action: String) -> void:
-	# Start/resume have their own cues at the actual game transition.
 	if action in ["play", "resume"]:
 		return
 	sound_requested.emit(&"ui_back" if action in ["back", "main_menu"] else &"ui_confirm")

@@ -9,7 +9,7 @@ const MENUS := {
 	"restart": preload("res://scenes/menus/restart_menu.tscn"),
 	"game_over": preload("res://scenes/menus/game_over_menu.tscn"),
 }
-const WEB_EXIT_SCRIPT := "window.close(); if (!window.closed && history.length > 1) { history.back(); }"
+const WEB_EXIT_SCRIPT := "if (window.parent !== window) { window.parent.postMessage('game-quit', '*'); } else { window.close(); if (!window.closed && history.length > 1) { history.back(); } }"
 
 var profile := ProfileStore.new()
 var current_menu := ""
@@ -151,6 +151,5 @@ func _quit_game() -> void:
 	_set_gameplay_running(false)
 	sound_player.stop_all()
 	music_player.stop()
-	# Let the audio thread release active playback before the engine shuts down.
 	await get_tree().create_timer(0.1).timeout
 	get_tree().quit()

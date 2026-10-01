@@ -26,13 +26,13 @@ color = Color(0.145098, 0.160784, 0.180392, 1)
 [node name="Title" type="Label" parent="."]
 offset_left = 356
 offset_top = 19
-offset_right = 656
+offset_right = 604
 offset_bottom = 55
 mouse_filter = 2
-text = "FALLING BLOCKS"
+text = "TETRIS"
 theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
-horizontal_alignment = 0
+horizontal_alignment = 1
 
 [node name="Board" parent="." instance=ExtResource("board")]
 layout_mode = 0

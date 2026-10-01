@@ -25,9 +25,6 @@ mono_crash.*.json
 # Android build template
 android/build/
 
-# Art source build tooling
-art_source/**/node_modules/
-
 # OS and editor clutter
 .DS_Store
 Thumbs.db

@@ -18,7 +18,7 @@ func check(condition: bool, message: String) -> void:
 
 
 func run() -> void:
-	var profile_path := "res://work/audio/test_profile.cfg"
+	var profile_path := "user://audio_test_profile.cfg"
 	var config := ConfigFile.new()
 	config.set_value("settings", "sound", 80.0)
 	config.set_value("settings", "music", 0.0)
@@ -158,9 +158,8 @@ func run() -> void:
 	main.queue_free()
 	await process_frame
 	await wait_ms(100)
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(profile_path))
 	var report := {"checks": checks, "failures": failures, "effects": SoundPlayer.CUES.size(), "native_mix": capture_report}
-	var f := FileAccess.open("res://outputs/audio-review/validation.json", FileAccess.WRITE)
-	f.store_string(JSON.stringify(report, "\t")); f.close()
 	print("AUDIO_FEEDBACK ", JSON.stringify(report))
 	quit(0 if failures.is_empty() else 1)
 
@@ -180,20 +179,10 @@ func check_native_mix(main: Control) -> Dictionary:
 	await wait_ms(450)
 	var frames := capture.get_buffer(capture.get_frames_available())
 	var peak := 0.0
-	var pcm := PackedByteArray()
-	pcm.resize(frames.size() * 4)
-	for i in range(frames.size()):
-		peak = maxf(peak, maxf(absf(frames[i].x), absf(frames[i].y)))
-		pcm.encode_s16(i*4, int(clampf(frames[i].x, -1, 1) * 32767))
-		pcm.encode_s16(i*4+2, int(clampf(frames[i].y, -1, 1) * 32767))
+	for frame in frames:
+		peak = maxf(peak, maxf(absf(frame.x), absf(frame.y)))
 	check(frames.size() > 1000 and peak > .005, "Native mixer produces non-silent audio")
 	check(peak <= .92, "Overlapping sounds plus full music stay below clipping")
-	var recording := AudioStreamWAV.new()
-	recording.format = AudioStreamWAV.FORMAT_16_BITS
-	recording.stereo = true
-	recording.mix_rate = int(AudioServer.get_mix_rate())
-	recording.data = pcm
-	recording.save_to_wav(ProjectSettings.globalize_path("res://outputs/audio-review/runtime-mix.wav"))
 	main.music_player.stop()
 	main.sound_player.set_level(0)
 	await wait_ms(150)
@@ -205,7 +194,7 @@ func check_native_mix(main: Control) -> Dictionary:
 	for frame in muted: muted_peak = maxf(muted_peak, maxf(absf(frame.x), absf(frame.y)))
 	check(muted_peak < .0001, "Zero Sound produces silence in native mixer")
 	AudioServer.remove_bus_effect(0, slot)
-	return {"frames": frames.size(), "peak": peak, "muted_peak": muted_peak, "mix_rate": recording.mix_rate}
+	return {"frames": frames.size(), "peak": peak, "muted_peak": muted_peak, "mix_rate": int(AudioServer.get_mix_rate())}
 
 
 func wait_ms(milliseconds: int) -> void:
