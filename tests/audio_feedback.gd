@@ -87,7 +87,7 @@ func run() -> void:
 	game._try_move(Vector2i(-100, 0))
 	game._try_move(Vector2i.DOWN)
 	check(requested.is_empty(), "Blocked movement and ordinary gravity remain silent")
-	game._try_rotate(1)
+	game._try_rotate()
 	check(requested == ([&"rotate"] as Array[StringName]), "Successful rotation cue")
 	requested.clear()
 	var occupied: Array[Vector2i] = []
@@ -96,7 +96,7 @@ func run() -> void:
 			var cell := Vector2i(x, y)
 			if not game.piece.cells().has(cell): occupied.append(cell)
 	game.matrix.place(occupied, "J")
-	game._try_rotate(1)
+	game._try_rotate()
 	check(requested.is_empty(), "Blocked rotation is silent")
 	game.new_game()
 	requested.clear()

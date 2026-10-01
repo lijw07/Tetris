@@ -6,14 +6,12 @@ Tetris built in Godot 4.7 (GL Compatibility). Press **F5** in the editor to play
 
 | Action | Keys |
 |---|---|
-| Move | ← → or A D |
-| Rotate clockwise | ↑, X or W |
-| Rotate counter-clockwise | Z |
-| Soft drop | ↓ or S |
+| Move | A D or ← → |
+| Rotate | W or ↑ |
+| Soft drop | S or ↓ |
 | Hard drop | Space |
-| Hold | C or Shift |
-| Pause | Esc or P |
-| Toggle fullscreen | F11 |
+| Hold | C |
+| Pause | Esc |
 
 Bindings live in **Project Settings → Input Map**.
 
@@ -48,9 +46,10 @@ The effects are in `assets/audio/sfx/`. They are original procedural synthesis w
 
 The game is designed at 960×640 and scales to any window:
 
-- On desktop, the window opens at 85% of the screen it starts on and is centred. It can be resized freely (minimum 480×320) and F11 switches to fullscreen.
+- On desktop, the window opens at 85% of the screen it starts on and is centred. It can be resized freely (minimum 480×320).
 - `canvas_items` stretch with `expand` aspect keeps text sharp at any size; wider or taller windows extend the background instead of letterboxing.
 - Sprites use nearest filtering so the block art stays crisp.
+- All text uses the bundled JetBrains Mono font (`assets/fonts/`, SIL Open Font License), so desktop and web look the same.
 - Web and mobile builds skip window sizing and fill the page or screen.
 
 ## Project layout

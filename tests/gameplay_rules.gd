@@ -22,6 +22,7 @@ func run() -> void:
 	check_bag()
 	check_scoring()
 	check_screen_scaling()
+	check_key_bindings()
 	await check_game_flow()
 	await process_frame
 	print("gameplay_rules: %d checks, %d failures" % [checks, failures.size()])
@@ -53,10 +54,10 @@ func check_wall_kicks() -> void:
 	var matrix := Matrix.new()
 	var vertical_i := ActivePiece.new("I", Vector2i(-2, 5), 1)
 	check(matrix.fits(vertical_i.cells()), "Vertical I against left wall fits")
-	var rotated := vertical_i.rotated(1)
+	var rotated := vertical_i.rotated_clockwise()
 	check(not matrix.fits(rotated.cells()), "Unkicked I rotation leaves the matrix")
 	var kicked := false
-	for kick in TetrominoData.kicks("I", 1, 2):
+	for kick in TetrominoData.clockwise_kicks("I", 1):
 		if matrix.fits(rotated.moved(kick).cells()):
 			kicked = true
 			break
@@ -189,3 +190,24 @@ func check_screen_scaling() -> void:
 	check(is_equal_approx(ScreenScaler.window_scale_for(Vector2(1920, 1080)), 1080 * 0.85 / 640), "Window fills most of a 1080p screen")
 	check(is_equal_approx(ScreenScaler.window_scale_for(Vector2(2560, 1440)), 1440 * 0.85 / 640), "Window grows on a 1440p screen")
 	check(ScreenScaler.window_scale_for(Vector2(300, 200)) == ScreenScaler.MINIMUM_WINDOW_SCALE, "Window never shrinks below half size")
+
+
+func check_key_bindings() -> void:
+	var expected := {
+		"move_left": [KEY_A, KEY_LEFT],
+		"move_right": [KEY_D, KEY_RIGHT],
+		"rotate": [KEY_W, KEY_UP],
+		"soft_drop": [KEY_S, KEY_DOWN],
+		"hard_drop": [KEY_SPACE],
+		"hold": [KEY_C],
+		"pause": [KEY_ESCAPE],
+	}
+	check(InputMap.get_actions().filter(func(action: StringName) -> bool: return not str(action).begins_with("ui_")).size() == expected.size(), "No undocumented game actions")
+	for action in expected:
+		var bound: Array = []
+		for event in InputMap.action_get_events(action):
+			bound.append((event as InputEventKey).physical_keycode)
+		bound.sort()
+		var documented: Array = expected[action].duplicate()
+		documented.sort()
+		check(bound == documented, "%s is bound only to the keys shown in the UI" % action)

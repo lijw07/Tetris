@@ -39,17 +39,6 @@ var _clear_elapsed := 0.0
 @onready var lines_value: Label = $LinesValue
 
 
-func _ready() -> void:
-	$PauseButton.pressed.connect(_request_pause)
-	$PauseButton.mouse_entered.connect(_pause_navigation_sound)
-	$PauseButton.focus_entered.connect(_pause_navigation_sound)
-
-
-func _pause_navigation_sound() -> void:
-	if $PauseButton.is_visible_in_tree() and not $PauseButton.disabled:
-		sound_requested.emit(&"ui_move")
-
-
 func apply_settings(values: Dictionary) -> void:
 	playfield.set_ghost_enabled(bool(values.get("ghost", true)))
 
@@ -89,10 +78,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		_start_shift(-1)
 	elif event.is_action_pressed("move_right"):
 		_start_shift(1)
-	elif event.is_action_pressed("rotate_clockwise"):
-		_try_rotate(1)
-	elif event.is_action_pressed("rotate_counterclockwise"):
-		_try_rotate(-1)
+	elif event.is_action_pressed("rotate"):
+		_try_rotate()
 	elif event.is_action_pressed("hard_drop"):
 		_hard_drop()
 	elif event.is_action_pressed("hold"):
@@ -191,9 +178,9 @@ func _try_move(offset: Vector2i) -> bool:
 	return true
 
 
-func _try_rotate(turns: int) -> void:
-	var rotated := piece.rotated(turns)
-	for kick in TetrominoData.kicks(piece.kind, piece.rotation, rotated.rotation):
+func _try_rotate() -> void:
+	var rotated := piece.rotated_clockwise()
+	for kick in TetrominoData.clockwise_kicks(piece.kind, piece.rotation):
 		var candidate := rotated.moved(kick)
 		if matrix.fits(candidate.cells()):
 			_commit(candidate)

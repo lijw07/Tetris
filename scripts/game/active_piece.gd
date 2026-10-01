@@ -27,5 +27,5 @@ func moved(offset: Vector2i) -> ActivePiece:
 	return ActivePiece.new(kind, origin + offset, rotation)
 
 
-func rotated(turns: int) -> ActivePiece:
-	return ActivePiece.new(kind, origin, posmod(rotation + turns, 4))
+func rotated_clockwise() -> ActivePiece:
+	return ActivePiece.new(kind, origin, (rotation + 1) % 4)
