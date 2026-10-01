@@ -1,0 +1,32 @@
+SIMPLE UI + BLOCK HOP
+
+Open preview.html to review the six menu screens and audition the new music.
+
+SCREENS
+Main menu, pause, settings, game over, how to play, restart confirmation.
+Every screen is 960x640. SVG and PNG versions are included. The review sheet
+is ui-screens.png; separate button/control artwork is in assets/.
+
+COMPONENTS
+Five button states: normal, hover, focus, pressed, disabled.
+Nine 24px icons, on/off toggles, slider track/fill/thumb, panels, dim overlay,
+keycap and a small T-piece menu mark. Buttons are 280x44. Flat panel edges
+can use 2px nine-slice margins. Button labels stay separate and editable.
+Fonts use Menlo/monospace system fallbacks; fonts are not bundled. PNGs retain
+the reviewed appearance. ui-pieces.png displays the component set.
+
+MUSIC
+Block Hop is a new original classic 8-bit arcade track: 150 BPM, E minor,
+16 bars, 25.6 seconds. Pulse melody, triangle bass, small arpeggio replies and
+synthesized percussion. No outside samples, pads or reverb. WAV is stereo
+16-bit PCM at 44100 Hz. Loop from sample 0 to 1128960, end exclusive.
+The rejected earlier music is not included. music-spec.json records levels.
+
+This is an art and music review bundle, not an implemented game. Settings
+sliders and buttons shown inside the screen images are artwork. The preview
+toolbar switches screens and the audio player auditions the track.
+
+source/ contains editable generation files. Run build_ui.py, build_music.py
+(requires NumPy), then render.cjs (requires Node.js and sharp). The review
+folder is excluded from Godot import with .gdignore. No game configuration
+was changed.

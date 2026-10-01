@@ -1,0 +1,224 @@
+{
+  "status": "UI artwork for review; not integrated into Godot",
+  "style": "Approved flat simple-v2 palette and shapes",
+  "assets": [
+    {
+      "file": "assets/button-normal.svg",
+      "width": 280,
+      "height": 44,
+      "type": "button state; labels stay dynamic"
+    },
+    {
+      "file": "assets/button-hover.svg",
+      "width": 280,
+      "height": 44,
+      "type": "button state; labels stay dynamic"
+    },
+    {
+      "file": "assets/button-focus.svg",
+      "width": 280,
+      "height": 44,
+      "type": "button state; labels stay dynamic"
+    },
+    {
+      "file": "assets/button-pressed.svg",
+      "width": 280,
+      "height": 44,
+      "type": "button state; labels stay dynamic"
+    },
+    {
+      "file": "assets/button-disabled.svg",
+      "width": 280,
+      "height": 44,
+      "type": "button state; labels stay dynamic"
+    },
+    {
+      "file": "assets/icon-pause.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-play.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-sound.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-mute.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-back.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-close.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-restart.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-settings.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/icon-home.svg",
+      "width": 24,
+      "height": 24,
+      "type": "icon"
+    },
+    {
+      "file": "assets/toggle-true.svg",
+      "width": 44,
+      "height": 24,
+      "type": "toggle"
+    },
+    {
+      "file": "assets/toggle-false.svg",
+      "width": 44,
+      "height": 24,
+      "type": "toggle"
+    },
+    {
+      "file": "assets/slider-track.svg",
+      "width": 240,
+      "height": 24,
+      "type": "slider track"
+    },
+    {
+      "file": "assets/slider-fill.svg",
+      "width": 240,
+      "height": 24,
+      "type": "slider fill; clip to value"
+    },
+    {
+      "file": "assets/slider-thumb.svg",
+      "width": 10,
+      "height": 24,
+      "type": "slider thumb"
+    },
+    {
+      "file": "assets/dialog-panel.svg",
+      "width": 360,
+      "height": 440,
+      "type": "panel; 2px nine-slice margin"
+    },
+    {
+      "file": "assets/confirm-panel.svg",
+      "width": 440,
+      "height": 280,
+      "type": "panel; 2px nine-slice margin"
+    },
+    {
+      "file": "assets/hud-panel.svg",
+      "width": 128,
+      "height": 92,
+      "type": "panel; 2px nine-slice margin"
+    },
+    {
+      "file": "assets/dim-overlay.svg",
+      "width": 960,
+      "height": 640,
+      "type": "overlay"
+    },
+    {
+      "file": "assets/keycap.svg",
+      "width": 44,
+      "height": 32,
+      "type": "keycap"
+    },
+    {
+      "file": "assets/t-mark.svg",
+      "width": 48,
+      "height": 32,
+      "type": "menu motif"
+    },
+    {
+      "file": "screens/main-menu.svg",
+      "width": 960,
+      "height": 640,
+      "type": "screen composition"
+    },
+    {
+      "file": "screens/pause.svg",
+      "width": 960,
+      "height": 640,
+      "type": "screen composition"
+    },
+    {
+      "file": "screens/settings.svg",
+      "width": 960,
+      "height": 640,
+      "type": "screen composition"
+    },
+    {
+      "file": "screens/game-over.svg",
+      "width": 960,
+      "height": 640,
+      "type": "screen composition"
+    },
+    {
+      "file": "screens/how-to-play.svg",
+      "width": 960,
+      "height": 640,
+      "type": "screen composition"
+    },
+    {
+      "file": "screens/restart-confirm.svg",
+      "width": 960,
+      "height": 640,
+      "type": "screen composition"
+    },
+    {
+      "file": "ui-screens.svg",
+      "width": 1280,
+      "height": 1500,
+      "type": "review layout"
+    },
+    {
+      "file": "ui-pieces.svg",
+      "width": 1000,
+      "height": 760,
+      "type": "component layout"
+    }
+  ],
+  "font": "Menlo / monospace system fallback; not bundled",
+  "music": {
+    "title": "Block Hop",
+    "file": "audio/block-hop.wav",
+    "style": "Classic 8-bit arcade",
+    "composition": "Original melody; no external samples or quoted game tune",
+    "bpm": 150,
+    "key": "E minor",
+    "bars": 16,
+    "seconds": 25.6,
+    "sample_rate": 44100,
+    "channels": 2,
+    "bit_depth": 16,
+    "loop_start_sample": 0,
+    "loop_end_sample": 1128960,
+    "peak_dbfs": -3.74,
+    "rms_dbfs": -17.09,
+    "boundary_step": 0.0009092592035593168,
+    "arrangement": "Pulse lead, triangle bass, sparse pulse arpeggio and synthesized percussion; no pads or reverb"
+  }
+}
