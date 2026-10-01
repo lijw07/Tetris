@@ -5,6 +5,7 @@
 # Godot export output and credentials
 export_credentials.cfg
 builds/
+WebBuild/
 *.apk
 *.aab
 *.pck
