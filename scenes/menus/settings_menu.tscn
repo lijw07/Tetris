@@ -37,6 +37,13 @@ offset_top = 104
 offset_right = 660
 offset_bottom = 552
 
+[node name="FocusFrame" type="Panel" parent="."]
+visible = false
+offset_right = 40
+offset_bottom = 40
+mouse_filter = 2
+theme_type_variation = &"FocusFrame"
+
 [node name="Title" type="Label" parent="."]
 offset_left = 300
 offset_top = 127

@@ -5,11 +5,17 @@ signal action_requested(action: String)
 signal setting_changed(setting: String, value: Variant)
 signal sound_requested(sound: StringName)
 
+const FOCUS_FRAME_PADDING := 8.0
+
 @export var cancel_action := ""
+
+@onready var _focus_frame := get_node_or_null("FocusFrame") as Control
 
 
 func _ready() -> void:
 	for child in get_children():
+		if child is Control and child.focus_mode != Control.FOCUS_NONE:
+			_make_focus_follow_mouse(child)
 		if child is Button and child.has_meta("action"):
 			_connect_action_button(child)
 		if child.has_meta("setting"):
@@ -30,9 +36,37 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	action_requested.emit(cancel_action)
 
 
+func _make_focus_follow_mouse(control: Control) -> void:
+	control.mouse_entered.connect(control.grab_focus)
+	control.focus_entered.connect(_navigation_sound.bind(control))
+	control.focus_entered.connect(_frame_focused_row.bind(control))
+	if control is Button:
+		control.focus_entered.connect(_keep_text_readable_while_focused.bind(control))
+		control.focus_exited.connect(control.remove_theme_color_override.bind("font_hover_color"))
+
+
+func _frame_focused_row(control: Control) -> void:
+	if not _focus_frame:
+		return
+	var row_label := _row_label_for(control)
+	_focus_frame.visible = row_label != null
+	if row_label:
+		var row := row_label.get_rect().merge(control.get_rect()).grow(FOCUS_FRAME_PADDING)
+		_focus_frame.position = row.position
+		_focus_frame.size = row.size
+
+
+func _row_label_for(control: Control) -> Control:
+	if not control.has_meta("setting"):
+		return null
+	return get_node_or_null(str(control.get_meta("setting")).capitalize() + "Label") as Control
+
+
+func _keep_text_readable_while_focused(button: Button) -> void:
+	button.add_theme_color_override("font_hover_color", button.get_theme_color("font_focus_color"))
+
+
 func _connect_action_button(button: Button) -> void:
-	button.mouse_entered.connect(_navigation_sound.bind(button))
-	button.focus_entered.connect(_navigation_sound.bind(button))
 	button.pressed.connect(func() -> void:
 		var action := str(button.get_meta("action"))
 		_play_action_sound(action)
@@ -43,8 +77,6 @@ func _connect_action_button(button: Button) -> void:
 
 
 func _connect_setting_control(control: Control) -> void:
-	control.mouse_entered.connect(_navigation_sound.bind(control))
-	control.focus_entered.connect(_navigation_sound.bind(control))
 	var setting := str(control.get_meta("setting"))
 	if control is Range:
 		control.value_changed.connect(func(value: float) -> void: _on_setting_changed(control, setting, value))

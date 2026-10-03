@@ -23,6 +23,7 @@ func run() -> void:
 	check_scoring()
 	check_screen_scaling()
 	check_key_bindings()
+	check_menu_navigation_keys()
 	await check_game_flow()
 	await process_frame
 	print("gameplay_rules: %d checks, %d failures" % [checks, failures.size()])
@@ -104,6 +105,7 @@ func check_game_flow() -> void:
 	await process_frame
 	var gameplay = main.gameplay
 	check(main.current_menu == "main_menu", "Game opens on main menu")
+	check_menu_focus(main.menu)
 	check(not gameplay.visible, "Board hidden behind main menu")
 	main.menu.get_node("PlayButton").pressed.emit()
 	await process_frame
@@ -143,6 +145,7 @@ func check_game_flow() -> void:
 	check(main.menu.get_node_or_null("BoardPreview") == null, "Pause shows the live board behind it")
 	main.menu.get_node("SettingsButton").pressed.emit()
 	await process_frame
+	check_settings_focus(main.menu)
 	main.menu.get_node("GhostToggle").toggled.emit(false)
 	check(not gameplay.get_node("Playfield/Ghost").visible, "Ghost setting hides ghost")
 	main.menu.get_node("GhostToggle").toggled.emit(true)
@@ -211,3 +214,36 @@ func check_key_bindings() -> void:
 		var documented: Array = expected[action].duplicate()
 		documented.sort()
 		check(bound == documented, "%s is bound only to the keys shown in the UI" % action)
+
+
+func check_menu_focus(menu: MenuScreen) -> void:
+	var play_button: Button = menu.get_node("PlayButton")
+	var how_to_play_button: Button = menu.get_node("HowToPlayButton")
+	check(play_button.has_focus(), "Play starts selected")
+	how_to_play_button.mouse_entered.emit()
+	check(how_to_play_button.has_focus() and not play_button.has_focus(), "Hovering a button selects it so only one button is highlighted")
+	var focused_hover_text := how_to_play_button.get_theme_color("font_hover_color")
+	check(focused_hover_text == how_to_play_button.get_theme_color("font_focus_color"), "Hovered selected button keeps dark text on its light background")
+	check(play_button.get_theme_color("font_hover_color") == play_button.get_theme_color("font_color"), "Unselected button keeps light text when hovered")
+	play_button.grab_focus()
+
+
+func check_menu_navigation_keys() -> void:
+	var expected := {"ui_up": KEY_W, "ui_down": KEY_S, "ui_left": KEY_A, "ui_right": KEY_D}
+	for action in expected:
+		var keys: Array = InputMap.action_get_events(action).filter(func(event: InputEvent) -> bool: return event is InputEventKey).map(func(event: InputEventKey) -> int: return event.physical_keycode if event.physical_keycode else event.keycode)
+		check(keys.has(expected[action]), "%s navigates menus with WASD" % action)
+
+
+func check_settings_focus(menu: MenuScreen) -> void:
+	var frame: Control = menu.get_node("FocusFrame")
+	var music_slider: HSlider = menu.get_node("MusicSlider")
+	var music_row: Rect2 = (menu.get_node("MusicLabel") as Control).get_rect().merge(music_slider.get_rect())
+	check(not frame.visible, "Settings frame is hidden while Done is selected")
+	music_slider.grab_focus()
+	check(frame.visible and frame.get_rect().encloses(music_row), "Selected setting row is framed")
+	menu.get_node("GhostToggle").grab_focus()
+	check(frame.get_rect().encloses((menu.get_node("GhostLabel") as Control).get_rect()) and not frame.get_rect().intersects(music_row), "Frame follows the selected setting")
+	check(music_slider.step == 5.0, "Volume adjusts in 5% steps")
+	menu.get_node("DoneButton").grab_focus()
+	check(not frame.visible, "Frame hides when Done is selected again")

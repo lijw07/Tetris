@@ -84,7 +84,7 @@ tests/                gameplay_rules.gd, audio_feedback.gd
 
 ## Menus
 
-Every menu scene uses `menu_screen.gd`. Buttons declare what they do with `metadata/action`, sliders and toggles bind to a saved setting with `metadata/setting`, and each menu's `cancel_action` property decides what Esc does. `main.gd` routes the actions.
+Every menu scene uses `menu_screen.gd`. Buttons declare what they do with `metadata/action`, sliders and toggles bind to a saved setting with `metadata/setting`, and each menu's `cancel_action` property decides what Esc does. `main.gd` routes the actions. Menus are navigated with W/S or the arrow keys (A/D or ←/→ adjust sliders), and hovering a control with the mouse selects it, so only one control is ever highlighted. On the settings screen the selected row is outlined, and the volume sliders move in 5% steps.
 
 ## Tests
 

@@ -9,4 +9,4 @@ offset_right = 280
 offset_bottom = 24
 theme = ExtResource("1")
 value = 50.0
-step = 1.0
+step = 5.0
