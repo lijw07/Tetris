@@ -23,25 +23,25 @@ mouse_filter = 2
 color = Color(0.145098, 0.160784, 0.180392, 1)
 
 [node name="Title" type="Label" parent="."]
-offset_left = 356
-offset_top = 19
-offset_right = 604
-offset_bottom = 55
+offset_left = 196
+offset_top = 16
+offset_right = 346
+offset_bottom = 52
 mouse_filter = 2
-text = "TETRIS"
+text = "BLOCK FALL"
 theme_override_font_sizes/font_size = 24
 theme_override_colors/font_color = Color(0.933333, 0.933333, 0.917647, 1)
-horizontal_alignment = 1
+horizontal_alignment = 0
 
 [node name="Board" parent="." instance=ExtResource("board")]
 layout_mode = 0
 offset_left = 356
-offset_top = 76
+offset_top = 16
 offset_right = 604
-offset_bottom = 564
+offset_bottom = 624
 
 [node name="Playfield" type="Node2D" parent="."]
-position = Vector2(360, 80)
+position = Vector2(360, 20)
 script = ExtResource("playfield")
 
 [node name="Settled" type="Node2D" parent="Playfield"]
@@ -165,12 +165,12 @@ script = ExtResource("piece_preview")
 layout_mode = 0
 
 [node name="Controls" type="Label" parent="."]
-offset_left = 0
-offset_top = 582
-offset_right = 960
-offset_bottom = 606
+offset_left = 198
+offset_top = 250
+offset_right = 346
+offset_bottom = 400
 mouse_filter = 2
-text = "A D / ← → MOVE   W / ↑ ROTATE   S / ↓ SOFT DROP   SPACE HARD DROP   C HOLD   ESC PAUSE"
+text = "A D / ← →  MOVE\nW / ↑      ROTATE\nS / ↓      SOFT DROP\nSPACE      HARD DROP\nC          HOLD\nESC        PAUSE"
 theme_override_font_sizes/font_size = 12
 theme_override_colors/font_color = Color(0.607843, 0.631373, 0.643137, 1)
-horizontal_alignment = 1
+horizontal_alignment = 0

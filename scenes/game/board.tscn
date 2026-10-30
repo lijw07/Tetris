@@ -2,12 +2,15 @@
 
 [ext_resource type="Texture2D" path="res://assets/sprites/board/board.png" id="1"]
 
-[node name="Board" type="TextureRect"]
+[node name="Board" type="NinePatchRect"]
 offset_left = 0
 offset_top = 0
 offset_right = 248
-offset_bottom = 488
+offset_bottom = 608
 mouse_filter = 2
 texture = ExtResource("1")
-expand_mode = 1
-stretch_mode = 0
+patch_margin_left = 4
+patch_margin_top = 28
+patch_margin_right = 4
+patch_margin_bottom = 4
+axis_stretch_vertical = 1

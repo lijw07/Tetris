@@ -1,6 +1,6 @@
-# Tetris
+# Block Fall
 
-Tetris built in Godot 4.7 (GL Compatibility). Press **F5** in the editor to play.
+A falling-block puzzle game built in Godot 4.7 (GL Compatibility), inspired by the classic Tetris. Not affiliated with or endorsed by The Tetris Company. Press **F5** in the editor to play.
 
 ## Controls
 
@@ -18,6 +18,7 @@ Bindings live in **Project Settings → Input Map**.
 ## Rules
 
 - SRS rotation with standard wall kicks, 7-piece bag randomizer, hold once per piece, ghost piece.
+- The board is 10 columns by 25 rows.
 - Gravity follows the guideline curve; soft drop falls 20× faster than the current level.
 - Lock delay of 0.5 s that resets on movement up to 15 times.
 - Scoring: 100 / 300 / 500 / 800 × level for 1–4 lines, +1 per soft-dropped row, +2 per hard-dropped row. The level rises every 10 lines.
@@ -85,6 +86,17 @@ tests/                gameplay_rules.gd, audio_feedback.gd
 ## Menus
 
 Every menu scene uses `menu_screen.gd`. Buttons declare what they do with `metadata/action`, sliders and toggles bind to a saved setting with `metadata/setting`, and each menu's `cancel_action` property decides what Esc does. `main.gd` routes the actions. Menus are navigated with W/S or the arrow keys (A/D or ←/→ adjust sliders), and hovering a control with the mouse selects it, so only one control is ever highlighted. On the settings screen the selected row is outlined, and the volume sliders move in 5% steps.
+
+## Publishing on itch.io
+
+The game starts straight into its own loading screen; the Godot boot splash is turned off.
+
+1. In Godot, open **Project → Export**, choose the **itch.io** preset and export to `builds/itch/index.html`.
+2. Zip the *contents* of `builds/itch/` so `index.html` is at the top of the zip, not inside a folder. `builds/` is ignored by git.
+3. On the itch.io project page, set **Kind of project** to HTML, upload the zip and tick **This file will be played in the browser**.
+4. Under **Embed options**, set the viewport to **960 × 640** and enable **Fullscreen button**. Leave **Mobile friendly** off (the game needs a keyboard) and **SharedArrayBuffer support** off (the export does not use threads).
+
+The itch.io preset adds the `itch` feature tag, which hides the Quit button because a game embedded on itch.io cannot close its page. The **Web** preset (`WebBuild/`) keeps Quit for the portfolio site.
 
 ## Tests
 

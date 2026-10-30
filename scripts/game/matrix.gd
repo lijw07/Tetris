@@ -2,7 +2,7 @@ class_name Matrix
 extends RefCounted
 
 const WIDTH := 10
-const HEIGHT := 22
+const HEIGHT := 27
 const HIDDEN_ROWS := 2
 const EMPTY := ""
 

@@ -9,6 +9,7 @@ const MENUS := {
 	"restart": preload("res://scenes/menus/restart_menu.tscn"),
 	"game_over": preload("res://scenes/menus/game_over_menu.tscn"),
 }
+const ITCH_FEATURE := "itch"
 const WEB_EXIT_SCRIPT := "if (window.parent !== window) { window.parent.postMessage('game-quit', '*'); } else { window.close(); if (!window.closed && history.length > 1) { history.back(); } }"
 
 var profile := ProfileStore.new()
@@ -122,6 +123,7 @@ func _open_menu(key: String) -> void:
 	menu.apply_settings(profile.settings)
 	if key == "main_menu":
 		menu.get_node("BestScore").text = "BEST  %06d" % profile.best_score
+		menu.get_node("QuitButton").visible = not OS.has_feature(ITCH_FEATURE)
 
 
 func _close_menu() -> void:
